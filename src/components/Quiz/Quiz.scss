@@ -1,34 +1,11 @@
-$primary: #150080;
-$accent: #d08642;
-$bg: #ffffff;
-$bg-accent: #e7e8e9;
-$disabled: #9c9c9c;
-$foreground: #2d264b;
-
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: monospace;
-    background: linear-gradient(0deg, $primary 0.03%, $accent);
-    color: $foreground;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 0 30px;
-    height: 100vh;
-}
-
+@import '../../styles/var.scss';
 .quiz-container {
     width: 500px;
     background: $bg;
     border-radius: 4px;
     margin-top: 100px;
     padding: 30px 60px;
+    position: relative;
 
     .active-question-no {
         font-size: 32px;
