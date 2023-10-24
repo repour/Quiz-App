@@ -2,6 +2,12 @@ export const jsQuizz = {
     questions: [
       {
         question:
+          "________________ who's the greatest programer in the Ghom",
+        type: "FIB",
+        correctAnswer: "repour",
+      },
+      {
+        question:
           "Which of the following is used in React.js to increase performance?",
         choices: [
           "Virtual DOM",

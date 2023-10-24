@@ -8,7 +8,7 @@
     border-bottom: 1px solid $disabled;
     .progress{
         height: 5px;
-        transition-duration: 1s;
+        transition-duration: 0.1s;
         width: 0;
         transition-timing-function: linear;
     }

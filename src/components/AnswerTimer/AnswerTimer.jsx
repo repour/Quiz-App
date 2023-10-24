@@ -12,7 +12,7 @@ const AnswerTimer = ({ duration, onTimeUp }) => {
     useEffect(() => {
         intervalRef.current = setInterval(() => {
             setCounter((cur) => cur + 1)
-        }, 1000)
+        }, 100)
 
         return () => clearInterval(intervalRef.current)
     }, [])
@@ -22,7 +22,7 @@ const AnswerTimer = ({ duration, onTimeUp }) => {
             clearInterval(intervalRef.current);
             setTimeout(()=>{
                 onTimeUp();
-            },1000);
+            });
 
         }
     }, [counter])
