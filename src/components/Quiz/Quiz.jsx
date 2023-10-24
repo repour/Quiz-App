@@ -14,7 +14,7 @@ const Quiz = ({ questions }) => {
     const [showAnswerTimer, setShowAnswerTimer] = useState(true);
     const [inputAnswer, setInputAnswer] = useState('');
     const { question, choices, correctAnswer, type } = questions[currentQuestion];
-
+    
     const onAnswerClick = (answer, index) => {
         setAnswerIdx(index);
         if (answer === correctAnswer) {
@@ -65,7 +65,7 @@ const Quiz = ({ questions }) => {
     const handleChange = (evt) =>{
         setInputAnswer(evt.target.value);
 
-        if (evt.target.value === correctAnswer) {
+        if (evt.target.value.toLowerCase() === correctAnswer.toLowerCase()) {
             setAnswer(true);
         } else{
             setAnswer(false)
@@ -75,7 +75,7 @@ const Quiz = ({ questions }) => {
     const getAnswerUI = () => {
 
         if (type === 'FIB') {
-            return <input value={inputAnswer} onChange={handleChange} />;
+            return <input value={inputAnswer} onChange={handleChange}/>;
         }
 
         return (
