@@ -112,7 +112,7 @@ const Quiz = ({ questions }) => {
                             {getAnswerUI()}
                             <div className="footer">
                                 <button onClick={() => { onClickNext(answer) }} disabled={answerIdx === null && !inputAnswer} >
-                                    {currentQuestion === questions.length - 1 ? "Finish" : "Next"}
+                                    {currentQuestion === questions.length - 1 ? "پایان" : "بعدی"}
                                 </button>
                             </div>
                         </>)

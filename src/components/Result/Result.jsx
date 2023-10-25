@@ -36,53 +36,55 @@ const Result = ({ onTryAgain, totalQuestions, result }) => {
 
     return (
         <div className='result'>
-            <h3>Result</h3>
+            <h3>نتیجه</h3>
             <p>
-                Total Questions: <span>{totalQuestions}</span>
+                کل سوالات: <span>{totalQuestions}</span>
             </p>
             <p>
-                Total Score: <span>{result.score}</span>
+                امتیاز نهایی: <span>{result.score}</span>
             </p>
             <p>
-                Correct Answers: <span>{result.correctAnswers}</span>
+                جواب‌های درست: <span>{result.correctAnswers}</span>
             </p>
             <p>
-                Wrong Answers: <span>{result.wrongAnswers}</span>
+                جواب‌های غلط: <span>{result.wrongAnswers}</span>
             </p>
-            <button onClick={handleTryAgain}>Try again</button>
+            <button onClick={handleTryAgain}>دوباره امتحان کن</button>
             {
                 !showScores
                     ?
                     <>
                         <h3>
-                            Enter your name bellow <br /> to save your score!
+                            نام خود را وارد کنید <br /> تا امتیاز شما ذخیره شود!
                         </h3>
                         <input
-                            placeholder='"Your Name'
+                            placeholder='نام شما'
                             value={name}
                             onChange={(evt) => setName(evt.target.value)}
                         />
-                        <button onClick={handleSave}>Save</button>
+                        <button onClick={handleSave}>ذخیره</button>
                     </>
                     :
                     <>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Ranking</th>
-                                    <th>Name</th>
-                                    <th>Score</th>
+                                    <th>رتبه</th>
+                                    <th>نام</th>
+                                    <th>امتیاز</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {highScores.map((highScore, idx) => {
-                                    return (
-                                        <tr key ={`${highScore.score}${highScore.name}${idx}`}>
-                                            <td>{idx + 1}</td>
-                                            <td>{highScore.name}</td>
-                                            <td>{highScore.score}</td>
-                                        </tr>
-                                    )
+                                    if (idx < 5) {
+                                        return (
+                                            <tr key ={`${highScore.score}${highScore.name}${idx}`}>
+                                                <td>{idx + 1}</td>
+                                                <td>{highScore.name}</td>
+                                                <td>{highScore.score}</td>
+                                            </tr>
+                                        )
+                                    }
                                 })}
                             </tbody>
                         </table>

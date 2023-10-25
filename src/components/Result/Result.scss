@@ -5,7 +5,6 @@
 
     h3{
        font-size: 24px;
-       letter-spacing: 1.4px;
        text-align: center; 
     }
     p{
@@ -18,12 +17,30 @@
     }
     table{
         width: 50%;
-        text-align: left;
+        text-align: right;
         margin: 50px auto 20px;
         border-collapse: collapse;
         tr{
             border: 1px solid ;
         }
+
+    }
+}
+@media screen and (max-width: 520px) {
+    .result{
+        h3{
+            font-size: 20px;
+            margin-top: 10px;
+         }
+         p{
+             font-size: 14px;
+             span{
+                 font-size: 18px;
+             }
+         }
+         table{
+            width: 75%;
+         }
 
     }
 }
