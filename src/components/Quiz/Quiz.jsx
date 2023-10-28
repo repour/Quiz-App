@@ -15,7 +15,8 @@ const Quiz = ({ questions }) => {
     const [showAnswerTimer, setShowAnswerTimer] = useState(true);
     const [inputAnswer, setInputAnswer] = useState('');
     const { question, choices, correctAnswer, type } = questions[currentQuestion];
-    
+    const [startQuiz, setStartQuiz] = useState(false);
+
     const onAnswerClick = (answer, index) => {
         setAnswerIdx(index);
         if (answer === correctAnswer) {
@@ -56,19 +57,20 @@ const Quiz = ({ questions }) => {
     const onTryAgain = () => {
         setResult(resultInitalState)
         setShowResult(false)
+        setStartQuiz(false)
     }
 
     const handleTimeUp = () => {
         setAnswer(false);
         onClickNext(false)
     }
-    
-    const handleChange = (evt) =>{
+
+    const handleChange = (evt) => {
         setInputAnswer(evt.target.value);
 
         if (evt.target.value.toLowerCase() === correctAnswer.toLowerCase()) {
             setAnswer(true);
-        } else{
+        } else {
             setAnswer(false)
         }
     }
@@ -76,7 +78,7 @@ const Quiz = ({ questions }) => {
     const getAnswerUI = () => {
 
         if (type === 'FIB') {
-            return <input value={inputAnswer} onChange={handleChange}/>;
+            return <input value={inputAnswer} onChange={handleChange} />;
         }
 
         return (
@@ -102,7 +104,14 @@ const Quiz = ({ questions }) => {
                 !showResult
                     ?
                     (
-                        <>
+                        !startQuiz
+                        ?
+                        (<div className='start'>
+                        <h3>کوییز اطلاعات عمومی</h3>
+                        <button onClick={() => setStartQuiz(true)}>شروع</button>
+                        </div>)
+                        :
+                        (<>
                             {showAnswerTimer && (
                                 <AnswerTimer duration={100} onTimeUp={handleTimeUp} />
                             )}
@@ -116,8 +125,9 @@ const Quiz = ({ questions }) => {
                                 </button>
                             </div>
                         </>)
+                    )
                     :
-                        <Result totalQuestions={questions.length} result={result} onTryAgain={onTryAgain} />
+                    <Result totalQuestions={questions.length} result={result} onTryAgain={onTryAgain} />
             }
 
         </div>

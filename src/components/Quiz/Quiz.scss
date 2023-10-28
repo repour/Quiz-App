@@ -7,6 +7,19 @@
     margin-top: 100px;
     padding: 30px 60px;
     position: relative;
+    .start{
+        margin: auto;
+        text-align: center;
+        padding: 2rem 0;
+        h3{
+            font-size: 2rem;
+        }
+        button{
+            background: linear-gradient(10deg, $foreground 7.03%, $accent);
+            margin-top: 4rem;
+            font-size: 1.5rem;
+        }
+    }
 
     .active-question-no {
         font-size: 32px;
